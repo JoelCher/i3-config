@@ -51,9 +51,6 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec "kitty -d `xcwd`"
 
-# 1 - install kitty 
-# 2 - install xcwd
-
 # kill focused window
 bindsym $mod+q kill
 
@@ -98,7 +95,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+b exec brave-browser
+bindsym $mod+b exec brave
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -197,6 +194,8 @@ bar {
 #Add Hebrew
 exec_always setxkbmap -model pc104 -layout us,il -option grp:alt_shift_toggle
 
+exec --no-startup-id pasystray
+
 
 bindsym F5 exec --no-startup-id sudo brightnessctl set +5%
 
@@ -209,6 +208,16 @@ bindsym F4 exec --no-startup-id sudo brightnessctl set 5%-
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 
-bindsym $mod+d exec --no-startup-id ~/rofi/files/launchers/type-2/launcher.sh
-bindsym $mod+Shift+e exec --no-startup-id ~/rofi/files/powermenu/type-1/powermenu.sh
-bindsym XF86PowerOff exec --no-startup-id ~/rofi/powermenu/type-3/powermenu.sh
+bindsym $mod+d exec --no-startup-id ~/rofi-themes/files/launchers/type-2/launcher.sh
+bindsym $mod+Shift+e exec --no-startup-id ~/rofi-themes/files/powermenu/type-1/powermenu.sh
+bindsym XF86PowerOff exec --no-startup-id ~/rofi-themes/powermenu/type-3/powermenu.sh
+
+#mirroring my screen on button press
+bindsym $mod+m exec --no-startup-id /usr/bin/mirror-screen
+
+bindsym $mod+p exec --no-startup-id "maim ~/screenshots/screenshot$(date +%s)"      
+
+exec_always --no-startup-id feh --bg-scale /home/joel/Pictures/sharingan.jpg
+exec_always --no-startup-id xset s off -dpms
+exec_always --no-startup-id xset r rate 200 35
+exec_always --no-startup-id xinput set-prop 10 339 1
